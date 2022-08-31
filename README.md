@@ -28,14 +28,18 @@ A NodeJS-based mock REST backend, created with [`mockoon`](https://mockoon.com/)
 
 ## Client
 
-A plain Next.JS app created with `create-next-app`
+A plain [Next.JS](https://nextjs.org/) app created with `create-next-app`
 
+- create a `.env.local` file with
+  ```
+  STEPZEN_API_KEY=your-stepzen-api-key (get it from https://stepzen.com/account)
+  ```
 - run locally: `npm run dev`
 - build a production bundle: `npm run build`
 
 ## StepZen
 
-- init a StepZen workspace
+- init a [StepZen](https://stepzen.com) workspace
 
   ```bash
   mkdir stepzen
