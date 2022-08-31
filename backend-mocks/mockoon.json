@@ -1,0 +1,144 @@
+{
+  "uuid": "60a64836-5397-47ae-a6c5-ab95d1470188",
+  "lastMigration": 22,
+  "name": "Mock data",
+  "endpointPrefix": "",
+  "latency": 0,
+  "port": 3001,
+  "hostname": "0.0.0.0",
+  "routes": [
+    {
+      "uuid": "92196e0a-1de5-4949-b8c7-96b84fa9a6ca",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "notifications",
+      "responses": [
+        {
+          "uuid": "f5b2a205-99b8-46a2-8ec9-5cb5e0cb5945",
+          "body": "{\n  \"entries\": [\n    {{# repeat 10 }}\n      {\n        \"notificationId\": \"{{ concat 'ntf' (faker 'datatype.number' min=10000 max=100000) }}\",\n        \"user\": {\n          \"userId\": \"{{ concat 'u' (faker 'datatype.number' min=10000 max=100000) }}\",\n          \"firstname\": \"{{ faker 'name.firstName' }}\",\n          \"lastname\": \"{{ faker 'name.lastName' }}\",\n          \"avatar\": \"{{ faker 'image.avatar' }}\"\n        },\n        \"seen\": {{ faker 'datatype.boolean' }},\n        \"reaction\": {\n          \"reactionId\": \"{{ concat 'r' (faker 'datatype.number' min=10000 max=100000) }}\",\n          \"reaction\": \"{{ oneOf (array 'up' 'down' 'heart' 'frown') }}\",\n          \"createdAt\": \"{{ faker 'date.recent' }}\",\n          \"givenBy\": {\n            \"userId\": \"{{ concat 'u' (faker 'datatype.number' min=10000 max=100000) }}\",\n            \"firstname\": \"{{ faker 'name.firstName' }}\",\n            \"lastname\": \"{{ faker 'name.lastName' }}\",\n            \"avatar\": \"{{ faker 'image.avatar' }}\"\n          },\n          \"post\": {\n            \"postId\": \"{{ concat 'pst' (faker 'datatype.number' min=10000 max=100000) }}\",\n            \"contentShort\": \"{{ faker 'lorem.sentence' }}\",\n            \"thumbnail\": \"https://loremflickr.com/640/480/cats\",\n            \"channel\": {\n              \"channelId\": \"{{ concat 'ch' (faker 'datatype.number' min=10000 max=100000) }}\",\n              \"name\": \"{{ faker 'lorem.words' }}\"\n            },\n            \"author\": {\n              \"userId\": \"{{ concat 'u' (faker 'datatype.number' min=10000 max=100000) }}\",\n              \"firstname\": \"{{ faker 'name.firstName' }}\",\n              \"lastname\": \"{{ faker 'name.lastName' }}\",\n              \"avatar\": \"{{ faker 'image.avatar' }}\"\n            }\n          }\n        }\n      },\n    {{/ repeat }}\n  ],\n  \"total\": 10\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "e9f75ce4-23dc-4308-931f-d09b4c260bb5",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "notifications/:id",
+      "responses": [
+        {
+          "uuid": "7ebfdc00-40a8-4228-9ec3-7cf2f95d943e",
+          "body": "{\n  \"notificationId\": \"{{ urlParam 'id' }}\",\n  \"user\": {\n    \"userId\": \"{{ concat 'u' (faker 'datatype.number' min=10000 max=100000) }}\",\n    \"firstname\": \"{{ faker 'name.firstName' }}\",\n    \"lastname\": \"{{ faker 'name.lastName' }}\",\n    \"avatar\": \"{{ faker 'image.avatar' }}\"\n  },\n  \"seen\": {{ faker 'datatype.boolean' }},\n  \"reaction\": {\n    \"reactionId\": \"{{ concat 'r' (faker 'datatype.number' min=10000 max=100000) }}\",\n    \"reaction\": \"{{ oneOf (array 'up' 'down' 'heart' 'frown') }}\",\n    \"createdAt\": \"{{ faker 'date.recent' }}\",\n    \"givenBy\": {\n      \"userId\": \"{{ concat 'u' (faker 'datatype.number' min=10000 max=100000) }}\",\n      \"firstname\": \"{{ faker 'name.firstName' }}\",\n      \"lastname\": \"{{ faker 'name.lastName' }}\",\n      \"avatar\": \"{{ faker 'image.avatar' }}\"\n    },\n    \"post\": {\n      \"postId\": \"{{ concat 'pst' (faker 'datatype.number' min=10000 max=100000) }}\",\n      \"contentShort\": \"{{ faker 'lorem.sentence' }}\",\n      \"thumbnail\": \"https://loremflickr.com/640/480/cats\",\n      \"channel\": {\n        \"channelId\": \"{{ concat 'ch' (faker 'datatype.number' min=10000 max=100000) }}\",\n        \"name\": \"{{ faker 'lorem.words' }}\"\n      },\n      \"author\": {\n        \"userId\": \"{{ concat 'u' (faker 'datatype.number' min=10000 max=100000) }}\",\n        \"firstname\": \"{{ faker 'name.firstName' }}\",\n        \"lastname\": \"{{ faker 'name.lastName' }}\",\n        \"avatar\": \"{{ faker 'image.avatar' }}\"\n      }\n    }\n  }\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "8b5bacc8-f1e0-4748-97f5-9b448bbf908b",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "users/:id",
+      "responses": [
+        {
+          "uuid": "ea3dfc0c-2125-4b54-ac3d-f6298591798a",
+          "body": "{\n  \"userId\": \"{{ urlParam 'id' }}\",\n  \"firstname\": \"{{ faker 'name.firstName' }}\",\n  \"lastname\": \"{{ faker 'name.lastName' }}\",\n  \"country\": \"{{ faker 'address.countryCode' }}\",\n  \"avatar\": \"{{ faker 'image.avatar' }}\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [
+    {
+      "key": "Content-Type",
+      "value": "application/json"
+    },
+    {
+      "key": "Access-Control-Allow-Origin",
+      "value": "*"
+    },
+    {
+      "key": "Access-Control-Allow-Methods",
+      "value": "GET,POST,PUT,PATCH,DELETE,HEAD,OPTIONS"
+    },
+    {
+      "key": "Access-Control-Allow-Headers",
+      "value": "Content-Type, Origin, Accept, Authorization, Content-Length, X-Requested-With"
+    }
+  ],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ]
+}

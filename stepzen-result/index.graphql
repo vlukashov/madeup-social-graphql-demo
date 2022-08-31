@@ -1,0 +1,19 @@
+schema @sdl(files: ["curl/index.graphql"]) {
+  query: Query
+}
+
+extend type User {
+  country: String
+    @materializer(
+      query: "userCountry"
+      arguments: [{ name: "userId", field: "userId" }]
+    )
+}
+
+type Query {
+  userCountry(userId: String!): String
+    @rest(
+      endpoint: "https://madeup-social-mockoon-ul7dy2h3tq-uc.a.run.app/users/$userId;"
+      resultroot: "country"
+    )
+}

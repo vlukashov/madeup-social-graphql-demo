@@ -1,0 +1,46 @@
+type Channel {
+  channelId: String
+  name: String
+}
+
+type User {
+  avatar: String
+  firstname: String
+  lastname: String
+  userId: String
+}
+
+type Notification {
+  notificationId: String
+  reaction: Reaction
+  seen: Boolean
+  user: User
+}
+
+type Post {
+  author: User
+  channel: Channel
+  contentShort: String
+  postId: String
+  thumbnail: String
+}
+
+type Reaction {
+  createdAt: String
+  givenBy: User
+  post: Post
+  reaction: String
+  reactionId: String
+}
+
+type NotificationsList {
+  entries: [Notification]
+  total: Int
+}
+
+type Query {
+  notificationList: NotificationsList
+    @rest(
+      endpoint: "https://madeup-social-mockoon-ul7dy2h3tq-uc.a.run.app/notifications"
+    )
+}
