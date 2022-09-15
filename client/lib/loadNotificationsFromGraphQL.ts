@@ -1,3 +1,5 @@
+import { Notification } from "./interfaces";
+
 const query = /* GraphQL */ `
   {
     notificationList {
@@ -46,5 +48,5 @@ export const loadNotificationsFromGraphQL = async () => {
     },
   } = await result.json();
 
-  return entries;
+  return entries as Notification[];
 };
