@@ -13,8 +13,8 @@ import { loadNotificationsWithCountriesFromGraphQL } from "../lib/loadNotificati
 import styles from "../styles/Home.module.css";
 
 const loadNotifications = loadNotificationsFromRest;
-// const loadNotifications = loadNotificationsFromGraphQL;
 // const loadNotifications = loadNotificationsWithCountriesFromRest;
+// const loadNotifications = loadNotificationsFromGraphQL;
 // const loadNotifications = loadNotificationsWithCountriesFromGraphQL;
 
 const Home: NextPage = () => {
