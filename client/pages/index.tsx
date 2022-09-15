@@ -40,7 +40,7 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>Turku ❤️ GraphQL</h1>
+        <h1 className={styles.title}>Tampere ❤️ GraphQL</h1>
         <p className={styles.description}>
           Demo app: list of social network notificaitons
         </p>
