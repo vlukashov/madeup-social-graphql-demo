@@ -1,0 +1,3 @@
+schema:
+  - "https://stepzen.stepzen.net/directives.graphql"
+  - "http://localhost:5001/api/madeup-social"
