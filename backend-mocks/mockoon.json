@@ -68,6 +68,36 @@
       "responseMode": null
     },
     {
+      "uuid": "ca8393be-875e-416a-91e5-0b258b35e9bd",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "users",
+      "responses": [
+        {
+          "uuid": "e599f5b5-cf88-4a36-87ba-8863c6f84d5d",
+          "body": "{\n  \"entries\": [\n    {{# repeat 10 }}\n      {\n        \"userId\": \"{{ concat 'u' (faker 'datatype.number' min=10000 max=100000) }}\",\n        \"firstname\": \"{{ faker 'name.firstName' }}\",\n        \"lastname\": \"{{ faker 'name.lastName' }}\",\n        \"country\": \"{{ faker 'address.countryCode' }}\",\n        \"avatar\": \"{{ faker 'image.avatar' }}\",\n        \"roles\": [\n          {{ setVar 'nRoles' (oneOf (array 1 2 3)) }}\n          {{# repeat nRoles}}\n            \"{{ slice (array 'user' 'moderator' 'admin') @index (add @index 1) }}\",\n          {{/ repeat }}\n        ],\n        \"managerId\": \"{{ concat 'u' (faker 'datatype.number' min=10000 max=100000) }}\"\n      },\n    {{/ repeat }}\n  ],\n  \"total\": 10\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
       "uuid": "8b5bacc8-f1e0-4748-97f5-9b448bbf908b",
       "documentation": "",
       "method": "get",
@@ -75,7 +105,7 @@
       "responses": [
         {
           "uuid": "ea3dfc0c-2125-4b54-ac3d-f6298591798a",
-          "body": "{\n  \"userId\": \"{{ urlParam 'id' }}\",\n  \"firstname\": \"{{ faker 'name.firstName' }}\",\n  \"lastname\": \"{{ faker 'name.lastName' }}\",\n  \"country\": \"{{ faker 'address.countryCode' }}\",\n  \"avatar\": \"{{ faker 'image.avatar' }}\"\n}",
+          "body": "{\n  \"userId\": \"{{ urlParam 'id' }}\",\n  \"firstname\": \"{{ faker 'name.firstName' }}\",\n  \"lastname\": \"{{ faker 'name.lastName' }}\",\n  \"country\": \"{{ faker 'address.countryCode' }}\",\n  \"avatar\": \"{{ faker 'image.avatar' }}\",\n  \"roles\": [\n    {{ setVar 'nRoles' (oneOf (array 1 2 3)) }}\n    {{# repeat nRoles}}\n      \"{{ slice (array 'user' 'moderator' 'admin') @index (add @index 1) }}\",\n    {{/ repeat }}\n  ],\n  \"managerId\": \"{{ concat 'u' (faker 'datatype.number' min=10000 max=100000) }}\"\n}",
           "latency": 0,
           "statusCode": 200,
           "label": "",
